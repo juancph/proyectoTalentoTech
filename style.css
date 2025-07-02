@@ -182,8 +182,13 @@ h1{
 .twin{
   height: 120vh;
 }
-.twin div, .twin img{
+.twin div{
   width: 50%;
+  height: 100%;
+}
+
+.twin img{
+  width: 100%;
   height: 100%;
 }
 
@@ -205,6 +210,33 @@ h1{
 #section5{
   border-bottom: var(--color-principal) solid 3px
 }
+
+.imgContent{
+  min-width: 50%;
+  height: 100%;
+  position: relative;
+}
+
+.imgContent::after{
+  content: "NovaSol";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 100px;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform-origin: bottom;
+  transform: scaleY(0);
+  transition: transform 1s;
+}
+
+.imgContent:hover::after{
+  transform: scaleY(1);
+}
+
 
 /*Footer*/
 footer{

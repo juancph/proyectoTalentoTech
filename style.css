@@ -16,28 +16,65 @@
   --color-hover: #15803d;           /* Verde más fuerte para efectos hover */
 }
 
-
-#ocultar{
-  width: 20px;
-  height: 20px;
-  border: none;
-  background-color: transparent;
-  font-size: 50px;
-  cursor: pointer;
-  display: none;
-  color: white;
+::-webkit-scrollbar{
+  width: 10px;
+  height: 10px;
+  background-color: rgb(207, 207, 207);
 }
 
-#mostrar{
-  width: 20px;
-  height: 20px;
+::-webkit-scrollbar-thumb{
+  background-color: var(--color-principal);
+  border-radius: 10px;
+  height: 70px;
+}
+
+::selection{
+  background-color: var(--color-acento);
+}
+
+
+.mostrar{
+  width: 40px;
+  height: 40px;
   border: none;
-  background-color: transparent;
   font-size: 50px;
   cursor: pointer;
   margin-right: 20px;
-  color: white;
   display: none;
+  text-align: center;
+  background-color: transparent;
+  flex-direction: column;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+
+span{
+  width: 100%;
+  height: 5px;
+  background-color: white;
+  color: #0f172a;
+  position: relative;
+  transition: 1s;
+}
+
+.mostrar.e #linea1{
+  top: 20px;
+  transform: rotate(45deg);
+  transition: top 0.2s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.mostrar.e #linea2{
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.mostrar.e #linea3{
+  top: -15px;
+  transform: rotate(-45deg);
+  transition: top 0.2s ease-in-out, transform 0.5s ease-in-out;
 }
 
 html{
@@ -50,6 +87,7 @@ section{
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 /*header*/
@@ -86,6 +124,7 @@ nav a {
   position: relative;
   transition: color 0.3s ease;
   transition: 0.5s;
+  display: flex;
 }
 
 nav a::after {
@@ -167,19 +206,27 @@ h1{
   background: var(--color-principal);
   flex-direction: column;
   color: white;
+  padding-bottom: 30px;
+  padding-top: 30px;
 }
 
 #section2 p{
-  width: 800px;
+  width: 70%;
   font-size: large;
   margin-top: 30px;
-  display: flex;
 }
 
 /*section 3*/
 #section3{
   flex-direction: column;
   overflow: hidden;
+  width: 100%;
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+
+#section3 p{
+  text-align: center;
 }
 
 #contenedorPrincipalS3{
@@ -188,10 +235,11 @@ h1{
   display: flex;
   margin-top: 90px;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 #contenedorPrincipalS3 div{
-  width: 15%;
+  width: 200px;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -201,10 +249,12 @@ h1{
 #tituloS3{
   font-size: 40px;
   color: var(--color-secundario);
+  text-align: center;
 }
 
 #contenedorPrincipalS3 div h2{
-  color: var(--color-texto);
+  color: var(--color-secundario);
+  text-align: center;
 }
 
 /*Section 4 and 5*/
@@ -276,9 +326,13 @@ footer{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
+  min-height: 50px;
+  width: 100%;
   align-items: center;
   border-top: solid 2px var(--color-principal);
+  padding: 20px 20px;
+  background-color: var(--color-principal);
+  color: white;
 }
 
 /*Calculadora*/
@@ -287,6 +341,7 @@ footer{
   justify-content: center;
   padding-bottom: 50px;
   padding-top: 50px;
+  overflow: hidden;
 }
 
 #section6 p{
@@ -298,12 +353,11 @@ footer{
 
 #section6 figure{
   width: 700px;
-  min-height: 400px;
+  min-height: 100px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   display: none;
-  margin-top: 90px;
 }
 
 .graficas{
@@ -316,7 +370,6 @@ footer{
 }
 
 .externo{
-  border: solid 1px;
   width: 100px;
   height: 300px;
   display: flex;
@@ -340,6 +393,7 @@ footer{
 
 .formulario h2{
   color: var(--color-principal);
+  text-align: center;
 }
 
 .formulario button{
@@ -349,6 +403,7 @@ footer{
   cursor: pointer;
   transition: 1s ease-in-out;
   position: relative;
+  background-color: transparent;
 }
 
 .formulario button::after, .formulario button::before{
@@ -390,30 +445,42 @@ footer{
   width: 100%;
   height: 100%;
   padding: 10px;
+  border: 1px solid var(--color-secundario);
 }
 
 .formulario label{
   position: absolute;
   transition: 0.2s ease-in-out;
   margin-left: 10px;
+  color: var(--color-principal);
+  cursor: pointer;
+  text-align: center;
 }
 
-.formulario input:focus ~ label{
+.formulario input:focus{
+  color: var(--color-acento);
+  border: none;
+  outline: 2px solid var(--color-acento);
+  transition: width none;
+}
+
+.formulario input:focus ~ label, 
+.formulario input:not(:placeholder-shown) ~ label{
   transform: translateY(-15px);
-  z-index: 1111;
   background-color: #ffffff;
   font-size: small;
+  color: var(--color-acento);
+  width: 60px;
 }
 
 #section6 p{
   font-size: larger;
+  text-align: center;
 }
 
 
 /*responsive*/
 @media (max-width: 660px){
-
-  /*header*/
 
   /*Section 2*/
   #section2 p{
@@ -477,19 +544,20 @@ footer{
     flex-direction: column;
   }
 
+
   footer{
     flex-direction: column;
+    text-align: center;
   }
 
   /*Menú dezplegable*/
-  #ocultar{
-    display: block;
-    top: 0;
-    position: absolute;
+
+  .mostrar{
+    display: flex;
   }
 
-  #mostrar{
-    display: inline;
+  .activar{
+    display: flex;
   }
 
   nav{
@@ -498,22 +566,78 @@ footer{
     align-items: center;
     position: absolute;
     height: 100vh;
-    width: 50%;
+    width: 60%;
     right: 0;
     top: 0;
     flex-direction: column;
-    z-index: 1;
     margin: 0;
     display: none;
+    transition: all .5s ease-in-out;
   }
 
-  nav::after{
-    content: "";
-    background-color: rgba(0, 0, 0, 0.5);
-    width: 1000px;
-    height: 100%;
-    position: absolute;
-    z-index: -1;
+  nav a{
+    transition: 1s;
+    width: 0%;
   }
 
+  nav a:hover{
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 70%;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    border-top: solid 2px var(--color-blanco);
+    border-bottom: solid 2px var(--color-blanco);
+    animation: a 0.5s ease-in-out;
+  }
+
+  @keyframes a {
+    to{
+      nav a{
+        width: 100%;
+      }
+    }
+  }
+
+  nav a:hover::after {
+    width: 0%;
+  }
+
+  #inputEfecto{
+    width: 80%;
+  }
+
+}
+
+/*Dashboard*/
+#section7, #section8 {
+  color: var(--color-texto);
+  flex-direction: column;
+  border-top: solid 3px var(--color-principal);
+  padding: 70px;
+  min-height: 90vh;
+}
+
+#section8{
+  border: none;
+}
+
+#section7 h2, #section8 h2 {
+  font-size: 28px;
+  text-align: center;
+  color: var(--color-principal);
+}
+
+#section7 p, #section8 p {
+  font-size: 16px;
+  text-align: center;
+  margin: 30px 30px;
+}
+
+#section7 canvas, #section8 canvas {
+  display: block;
+  max-width: 70%;
+  height: 600px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }

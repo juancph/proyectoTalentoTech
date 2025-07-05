@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
@@ -7,7 +7,7 @@
   <title>NovaSol</title>
   <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="imagenes\logo.svg" type="image/x-icon">
-
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 
@@ -17,13 +17,19 @@
     <a href="#principal">
       <img src="imagenes\logo.png" id="logo">
     </a>
-    <button id="mostrar">≡</button>
+    
+    <button class="mostrar">
+      <span id="linea1"></span>
+      <span id="linea2"></span>
+      <span id="linea3"></span>
+    </button>
+
     <nav>
-      <button id="ocultar">X</button>
       <a href="#principal">Inicio</a>
       <a href="#section2">informacion</a>
       <a href="#section3">Beneficios</a>
       <a href="#section6">Calculadora</a>
+      <a href="#section7">Dashboard</a>
     </nav>
   </header>
 
@@ -156,7 +162,7 @@
         Ingrese su consumo eléctico mensual (kWh)
       </h2>
       <div id="inputEfecto">
-        <input type="number" id="barra">
+        <input type="number" id="barra" placeholder="">
         <label for="barra">Calcular</label>
       </div>
       <button id="enviar">Enviar</button>
@@ -179,6 +185,35 @@
 
     </figure>
   </section>
+
+
+  <!----------------------------------->
+  <section id="section7">
+    <h2>Producción por Fuente de Energía Renovable</h2>
+    <p>
+      A continuación se muestra la producción estimada (en teravatios hora) de las principales fuentes
+      de energía renovable en el año 2022:
+    </p>
+    <canvas id="graficoBarras" width="600" height="300"></canvas>
+  </section>
+
+  <section id="section8">
+    <h2>Tendencia en Capacidad Instalada (1965 - 2022)</h2>
+    <p>
+      Observa cómo ha crecido la capacidad instalada global de las energías solar, eólica y geotérmica
+      desde 1965 hasta 2022 (medida en gigavatios):
+    </p>
+    <canvas id="graficoLineas" width="700" height="300"></canvas>
+  </section>
+
+
+
+
+
+
+
+
+
 
   <!--Footer-->
   <footer>

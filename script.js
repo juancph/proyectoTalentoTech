@@ -86,3 +86,66 @@ mostrar.onclick = () => {
     nav.classList.toggle("activar")
     mostrar.classList.toggle("e")
 }
+
+//Simulador
+let botonSimulador = document.querySelector(".botonSimulador");
+let barraPanel = document.getElementById("barra_panel");       // W paneles
+let barraSimulador = document.getElementById("barra_simulador"); // kWh consumo
+let textoResultado = document.querySelector(".textoResultado");
+
+botonSimulador.addEventListener("click", () => {
+  let panelW = parseFloat(barraPanel.value);
+  let consumoMes = parseFloat(barraSimulador.value);
+
+  if (!Number.isFinite(panelW) || !Number.isFinite(consumoMes)) {
+    alert("Error: Llene los campos");
+    return;
+  }
+
+  // Datos ingresados
+  let panelesKW = panelW / 1000; // W a kW
+  let horasSolaresDia = 4.5; // promedio horas sol Chocó
+
+  // Energía generada en el mes (kWh)
+  let energiaPanelesMes = panelesKW * horasSolaresDia * 30;
+
+  // Porcentaje renovable
+  let porcentajeRenovable = (energiaPanelesMes / consumoMes) * 100;
+  if (porcentajeRenovable > 100) porcentajeRenovable = 100;
+
+  // Ahorro en kWh
+  let ahorroKWh = Math.min(energiaPanelesMes, consumoMes);
+
+  // Ahorro en dinero
+  let precioKWh = 900; // COP
+  let ahorroDinero = ahorroKWh * precioKWh;
+
+  // Total factura sin paneles
+  let totalFactura = consumoMes * precioKWh;
+
+  // Lo que pagarías con paneles
+  let pagoConPaneles = totalFactura - ahorroDinero;
+
+  textoResultado.style.display = "block";
+
+  // Mostrar resultado con formato largo
+  textoResultado.textContent =
+    `Tus paneles generarían aproximadamente ${energiaPanelesMes.toFixed(2)} kWh/mes. ` +
+    `Esto cubre el ${porcentajeRenovable.toFixed(2)}% de tu consumo mensual ` +
+    `y te ahorra ${ahorroKWh.toFixed(2)} kWh al mes, es decir ` +
+    `$${ahorroDinero.toLocaleString("es-CO")} pesos ` +
+    `de los $${totalFactura.toLocaleString("es-CO")} pesos que tendrías que pagar, ` +
+    `teniendo que pagar tan solo $${pagoConPaneles.toLocaleString("es-CO")} pesos, ` +
+    `en lugar de $${totalFactura.toLocaleString("es-CO")} pesos.`;
+
+  barraPanel.value = "";
+  barraSimulador.value = "";
+});
+
+
+// función para Enter
+function enter(input) {
+  input.addEventListener("keydown", e => e.key === "Enter" && botonSimulador.click());
+}
+enter(barraPanel);
+enter(barraSimulador);

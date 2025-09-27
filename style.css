@@ -481,6 +481,80 @@ footer{
   text-align: center;
 }
 
+/*Section 7*/
+#section7{
+  background-color: #dafae7;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  color: var(--color-principal);
+  border-top: solid;
+}
+
+#section8{
+  background:
+    linear-gradient(50deg, rgba(255,255,255,0) 50%, rgba(255,255,255,1) 50%),
+    url("imagenes/textura-pica.png");
+  
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+  border-top: solid var(--color-principal);
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #0f172a;
+}
+
+.simulador{
+  border: solid var(--color-principal);
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  justify-content: space-evenly;
+  align-items: center;
+  min-width: 40%;
+  flex-wrap: wrap;
+}
+
+.simulador input{
+  border: none;
+  border-bottom: 2px solid var(--color-principal);
+  background-color: transparent;
+  width: 90%;
+  height: 30px;
+}
+
+.simulador input:focus{
+  outline: none;
+  border-bottom: 2px solid var(--color-acento);
+}
+
+.contenedorInputs{
+  width: 95%;
+}
+
+.resultado{
+  width: 30%;
+}
+
+.resultado p{
+  display: none;
+  line-height: 27px;
+}
+
+.botonSimulador{
+  height: 50px;
+  width: 120px;
+  border-radius: 9px;
+  background-color:#15803d;
+  transition: .5s;
+  border: solid 2px black;
+}
+
+.botonSimulador:hover{
+  background-color:#15803cc9;
+}
 
 /*responsive*/
 @media (max-width: 660px){
@@ -608,6 +682,16 @@ footer{
 
   #inputEfecto{
     width: 80%;
+  }
+
+  /*Section8*/
+  #section8{
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+  }
+
+  .resultado{
+    width: 95%;
   }
 
 }

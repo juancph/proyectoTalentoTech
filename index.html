@@ -6,9 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NovaSol</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="shortcut icon" href="imagenes\logo.svg" type="image/x-icon">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://unpkg.com/scrollreveal"></script>
+  <link rel="shortcut icon" href="imagenes/logo.png" type="image/x-icon">
 </head>
 
 <body>
@@ -29,7 +27,8 @@
       <a href="#section2">informacion</a>
       <a href="#section3">Beneficios</a>
       <a href="#section6">Calculadora</a>
-      <a href="#section7">Dashboard</a>
+      <a href="#section7">Instalación</a>
+      <a href="#section8">Simulador</a>
     </nav>
   </header>
 
@@ -165,6 +164,14 @@
         <input type="number" id="barra" placeholder="">
         <label for="barra">Calcular</label>
       </div>
+
+      <h2>
+        Ingrese la potencia de sus páneles solares (W)
+      </h2>
+      <div id="inputEfecto">
+        <input type="number" id="barra2" placeholder="">
+        <label for="barra2">Calcular</label>
+      </div>
       <button id="enviar">Enviar</button>
     </div>
 
@@ -186,23 +193,33 @@
     </figure>
   </section>
 
-  <!--Dashboard-->>
+  <!--Como funcionan los paneles solares-->
   <section id="section7">
-    <h2>Producción por Fuente de Energía Renovable</h2>
-    <p>
-      A continuación se muestra la producción estimada (en teravatios hora) de las principales fuentes
-      de energía renovable en el año 2022:
-    </p>
-    <canvas id="graficoBarras" width="600" height="300"></canvas>
+    <h2>INSTALA TUS PANELES SOLARES</h2>
+    <iframe width="70%" height="415" src="https://www.youtube.com/embed/gK8lohTW3VE?si=OWBpRVdah5Wem8rR" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   </section>
 
+  <!--Simulador de ahorro-->
   <section id="section8">
-    <h2>Tendencia en Capacidad Instalada (1965 - 2022)</h2>
-    <p>
-      Observa cómo ha crecido la capacidad instalada global de las energías solar, eólica y geotérmica
-      desde 1965 hasta 2022 (medida en gigavatios):
-    </p>
-    <canvas id="graficoLineas" width="700" height="300"></canvas>
+    <div class="resultado">
+      <p class="textoResultado"></p>
+    </div>
+
+    <div class="simulador">
+      <h2>Simulador de Gasto</h2>
+
+      <div class="contenedorInputs">
+        <label for="barra_simulador">Consumo mensual en kWh de su casa</label>
+        <input type="number" id="barra_simulador">
+      </div>
+
+      <div class="contenedorInputs">
+        <label for="barra_panel">Capacidad del los paneles en W</label>
+        <input type="number" id="barra_panel">
+      </div>
+
+    <button class="botonSimulador">Enviar</button>
+    </div>
   </section>
 
   <!--Footer-->

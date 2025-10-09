@@ -2,24 +2,25 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Segoe UI", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Segoe UI"
 }
 
 :root {
   --color-principal: #104b28;
+  --color-principal-darker: #104b283d;
   --color-secundario: #166534;
   --color-acento: #22c55e;
-  --color-fondo: #f0fdf4;
+  --color-fondo: #dafae7;
   --color-texto: #0f172a;
   --color-blanco: #ffffff;
-  --color-gris: #e2e8f0;
+  --color-gris: #c8c8c8;
   --color-hover: #15803d;
 }
 
 ::-webkit-scrollbar{
   width: 10px;
   height: 10px;
-  background-color: rgb(207, 207, 207);
+  background-color: var(--color-gris);
 }
 
 ::-webkit-scrollbar-thumb{
@@ -53,7 +54,7 @@
 span{
   width: 100%;
   height: 5px;
-  background-color: white;
+  background-color: var(--color-blanco);
   color: #0f172a;
   position: relative;
   transition: 1s;
@@ -118,7 +119,7 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: white;
+  color: var(--color-blanco);
   font-weight: 500;
   font-size: 16px;
   position: relative;
@@ -166,7 +167,7 @@ nav a:hover::after {
   justify-content: center;
   align-items: start;
   flex-direction: column;
-  color: white;
+  color: var(--color-blanco);
   transition: background 0.5s ease-in-out;
 }
 
@@ -205,7 +206,7 @@ h1{
 #section2{
   background: var(--color-principal);
   flex-direction: column;
-  color: white;
+  color: var(--color-blanco);
   padding-bottom: 30px;
   padding-top: 30px;
 }
@@ -275,7 +276,7 @@ h1{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #dafae7;
+  background-color: var(--color-fondo);
 }
 
 .twin p{
@@ -302,7 +303,7 @@ h1{
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  color: white;
+  color: var(--color-blanco);
   font-size: 20px;
   background-color: rgba(0, 0, 0, 0.5);
   height: 100%;
@@ -332,7 +333,7 @@ footer{
   border-top: solid 2px var(--color-principal);
   padding: 20px 20px;
   background-color: var(--color-principal);
-  color: white;
+  color: var(--color-blanco);
 }
 
 /*Calculadora*/
@@ -380,7 +381,7 @@ footer{
 .interno{
   width: 100%;
   transition: height 1s ease-in-out;
-  background-color: #104b28;
+  background-color: var(--color-principal);
 }
 
 .formulario{
@@ -391,7 +392,7 @@ footer{
   justify-content: space-evenly;
   align-items: center;
   border: solid 1px var(--color-principal);
-  background-color: #104b283d;
+  background-color: var(--color-principal-darker);
 }
 
 .formulario h2{
@@ -422,7 +423,7 @@ footer{
 }
 
 .formulario button:hover{
-  background-color: #22c55eef;
+  background-color: var(--color-acento);
 }
 
 .formulario button:hover::after{
@@ -470,7 +471,7 @@ footer{
 .formulario input:focus ~ label, 
 .formulario input:not(:placeholder-shown) ~ label{
   transform: translateY(-15px);
-  background-color: #ffffff;
+  background-color: var(--color-blanco);
   font-size: small;
   color: var(--color-acento);
   width: 60px;
@@ -483,7 +484,7 @@ footer{
 
 /*Section 7*/
 #section7{
-  background-color: #dafae7;
+  background-color: var(--color-fondo);
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
@@ -503,7 +504,7 @@ footer{
   justify-content: space-between;
   padding-left: 20px;
   padding-right: 20px;
-  color: #0f172a;
+  color: var(--color-texto);
 }
 
 .simulador{
@@ -547,13 +548,13 @@ footer{
   height: 50px;
   width: 120px;
   border-radius: 9px;
-  background-color:#15803d;
+  background-color: var(--color-hover);
   transition: .5s;
   border: solid 2px black;
 }
 
 .botonSimulador:hover{
-  background-color:#15803cc9;
+  background-color:var(--color-hover);
 }
 
 /*responsive*/
